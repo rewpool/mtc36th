@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>สถาปนา ศทท.สส.ทหาร ปีที่ 36</title>
 
-  <!--  ฟอนต์ Sarabun จาก Google Fonts -->
+  <!-- ✅ ฟอนต์ Sarabun จาก Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -16,54 +16,65 @@
       padding: 0;
       text-align: center;
       color: #2b2b6e;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    /*  ส่วนหัวโลโก้ + ข้อความ */
+    /* ✅ ส่วนหัวโลโก้ + ข้อความ */
     .header {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 15px;
-      margin-top: 40px;
+      margin-top: 20px;
       flex-wrap: wrap;
     }
 
     .header img {
-      width: 100px;
+      width: 80px;
       height: auto;
     }
 
     .header h1 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       color: #2b2b6e;
       margin: 0;
       font-weight: 600;
     }
 
-    /*  ใช้ Grid Layout ให้จัดครบ 4 ช่องแนวนอน */
+    /* ✅ โครงสร้าง Grid 2 แถว 2 คอลัมน์ */
     .container {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
       justify-items: center;
-      margin: 50px auto;
-      max-width: 1200px;
-      padding: 0 20px;
+      align-items: center;
+      flex-grow: 1;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 800px;
+      height: calc(100vh - 140px); /* ลบส่วนหัวออก */
     }
 
     .card {
-      width: 280px;
-      height: 280px;
+      width: 100%;
+      height: 100%;
       background-color: white;
       border-radius: 16px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       cursor: pointer;
       overflow: hidden;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
     }
 
@@ -75,57 +86,43 @@
     }
 
     .card p {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       color: #000;
-      margin: 10px;
+      margin: 10px 0;
       font-weight: 500;
     }
 
-    /*  Responsive สำหรับแท็บเล็ต */
-    @media (max-width: 1024px) {
-      .container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .header h1 {
-        font-size: 1.9rem;
-      }
-    }
-
-    /*  Responsive สำหรับมือถือ */
+    /* ✅ ปรับขนาดอัตโนมัติสำหรับมือถือ */
     @media (max-width: 600px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        width: 90%;
-        height: auto;
-      }
-
       .header img {
-        width: 70px;
+        width: 60px;
       }
 
       .header h1 {
-        font-size: 1.7rem;
-        text-align: center;
+        font-size: 1.2rem;
       }
 
       .card p {
-        font-size: 1.1rem;
+        font-size: 1rem;
+      }
+
+      .container {
+        width: 95%;
+        gap: 10px;
+        height: calc(100vh - 120px);
       }
     }
   </style>
 </head>
 
 <body>
-  <!--  ส่วนหัว โลโก้ + ข้อความ -->
+  <!-- ✅ ส่วนหัว โลโก้ + ข้อความ -->
   <div class="header">
     <img src="images/logo.png" alt="โลโก้สถาปนา" />
     <h1>สถาปนา ศทท.สส.ทหาร ปีที่ 36</h1>
   </div>
 
-  <!--  เมนูบล็อก 4 ช่อง -->
+  <!-- ✅ เมนูบล็อก 2x2 -->
   <div class="container">
     <div class="card" onclick="openLink('https://drive.google.com/drive/folders/1fd4OOw8U373ryF9sugXzIsiR7k_yHYaQ?usp=sharing')">
       <img src="images/old_commanders.png" alt="ภาพศูนย์โทรในอดีต" />
@@ -137,7 +134,7 @@
       <p>ภาพงานสถาปนา MTC 36th</p>
     </div>
 
-    <div class="card" onclick="openLink('https://www.youtube.com/@IDCDivision')">
+    <div class="card" onclick="openLink('https://www.youtube.com/')">
       <img src="images/live.png" alt="ถ่ายทอดสดงานสถาปนา" />
       <p>ถ่ายทอดสดงานสถาปนา</p>
     </div>
