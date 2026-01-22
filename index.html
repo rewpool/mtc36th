@@ -4,58 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>สถาปนา ศทท.สส.ทหาร ปีที่ 36</title>
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
       font-family: "Sarabun", "TH SarabunPSK", sans-serif;
       background-color: #fff;
       color: #2b2b6e;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
     }
 
-    /* 🔹 ส่วนหัว */
+    /* ✅ ส่วนหัว */
     .header {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding-top: 12px;
+      gap: 10px;
       flex-wrap: wrap;
+      margin-top: 16px;
     }
 
     .header img {
-      width: 65px;
+      width: 70px;
       height: auto;
     }
 
     .header h1 {
       font-size: 1.6rem;
       margin: 0;
-      text-align: center;
       font-weight: 600;
+      text-align: center;
     }
 
-    /* 🔹 พื้นที่แสดงการ์ด */
+    /* ✅ พื้นที่หลัก (Flexbox) */
     .container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      gap: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 16px;
       width: 90%;
       max-width: 800px;
-      height: calc(100vh - 120px);
-      box-sizing: border-box;
+      flex-grow: 1;
+      margin: 20px 0;
     }
 
-    /* 🔹 การ์ดแต่ละช่อง */
+    /* ✅ การ์ด */
     .card {
+      flex: 1 1 calc(50% - 16px); /* 2 ช่องต่อแถว */
       background: #fff;
       border-radius: 16px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -63,67 +63,61 @@
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
     }
 
-    /* 🔹 รูปภาพ */
     .card img {
       width: 100%;
-      height: 100%;
-      flex: 1;
-      object-fit: cover;
+      height: auto;
       aspect-ratio: 4 / 3;
-      display: block;
+      object-fit: cover;
     }
 
-    /* 🔹 ข้อความใต้ภาพ */
     .card p {
+      flex: 0 0 42px; /* ✅ กำหนดความสูงคงที่ */
       margin: 0;
       font-size: 1rem;
       color: #000;
-      text-align: center;
-      padding: 6px 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 40px;
-      line-height: 1.2;
+      text-align: center;
+      border-top: 1px solid #eee;
+      background: #fff;
     }
 
-    /* 🔹 มือถือ */
+    /* ✅ มือถือ */
     @media (max-width: 600px) {
       .header img {
-        width: 50px;
+        width: 55px;
       }
       .header h1 {
         font-size: 1.2rem;
       }
-      .container {
-        gap: 8px;
-        width: 92%;
-        height: calc(100vh - 100px);
+      .card {
+        flex: 1 1 calc(50% - 10px);
       }
       .card p {
         font-size: 0.9rem;
-        height: 34px;
+        flex: 0 0 36px;
       }
     }
   </style>
 </head>
+
 <body>
-  <!-- 🔸 ส่วนหัว -->
+  <!-- 🔹 ส่วนหัว -->
   <div class="header">
     <img src="images/logo.png" alt="โลโก้สถาปนา" />
     <h1>สถาปนา ศทท.สส.ทหาร ปีที่ 36</h1>
   </div>
 
-  <!-- 🔸 การ์ดเมนู -->
+  <!-- 🔹 4 บล็อก -->
   <div class="container">
     <div class="card" onclick="openLink('https://drive.google.com/drive/folders/1fd4OOw8U373ryF9sugXzIsiR7k_yHYaQ?usp=sharing')">
       <img src="images/old_commanders.png" alt="ภาพศูนย์โทรในอดีต" />
