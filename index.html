@@ -12,7 +12,8 @@
       padding: 0;
       height: 100%;
       font-family: "Sarabun", "TH SarabunPSK", sans-serif;
-      background: linear-gradient(to bottom right, #f8f4ff, #f5f0ff, #fff9f5);
+      background: linear-gradient(to bottom right, #f7f3ff, #ede6ff, #fff9ef);
+      overflow-y: auto;
       overflow-x: hidden;
       color: #3d2c54;
       display: flex;
@@ -34,25 +35,25 @@
     .header img {
       width: 65px;
       height: auto;
-      filter: drop-shadow(0 0 6px rgba(160, 120, 255, 0.5));
+      filter: drop-shadow(0 0 8px rgba(180, 120, 255, 0.4));
     }
 
     .header h1 {
       font-size: 1.9rem;
-      color: #5b2ebd;
+      color: #6633cc;
       font-weight: 900;
-      text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 10px rgba(130,60,255,0.4);
+      text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.9), 0 0 10px rgba(120, 60, 255, 0.3);
       margin: 0;
     }
 
     /* Container */
     .container {
       display: grid;
-      grid-template-rows: repeat(4, auto);
-      width: 90vw;
-      gap: 1.2rem;
-      margin-top: 20px;
-      margin-bottom: 30px;
+      grid-template-rows: repeat(4, calc((100vh - 25vh) / 4));
+      width: 88vw;
+      gap: 1.5vh;
+      margin-top: 18px;
+      margin-bottom: 40px;
     }
 
     /* Card */
@@ -63,16 +64,15 @@
       overflow: hidden;
       cursor: pointer;
       background: #ffffff;
-      border: 1.5px solid rgba(150, 130, 255, 0.3);
-      box-shadow: 0 6px 16px rgba(90, 70, 180, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      aspect-ratio: 16/5; /* ✅ กำหนดอัตราส่วนคงที่แทนการใช้ vh */
+      border: 1.5px solid rgba(180, 150, 255, 0.3);
+      box-shadow: 0 8px 18px rgba(100, 70, 180, 0.2);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
     }
 
     .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 25px rgba(90, 60, 180, 0.35);
-      border-color: rgba(120, 80, 255, 0.5);
+      transform: scale(1.03);
+      box-shadow: 0 12px 30px rgba(90, 50, 180, 0.35);
+      border-color: rgba(150, 120, 255, 0.5);
     }
 
     .card img {
@@ -80,33 +80,31 @@
       height: 100%;
       object-fit: cover;
       border-radius: 18px;
-      transition: transform 0.3s ease, filter 0.3s ease;
+      transition: filter 0.3s ease, transform 0.3s ease;
       filter: brightness(1.05) contrast(1.05);
     }
 
     .card:hover img {
-      transform: scale(1.02);
       filter: brightness(1.15) saturate(1.2);
+      transform: scale(1.01);
     }
 
     /* Responsive */
     @media (max-width: 1024px) {
       .header img { width: 55px; }
       .header h1 { font-size: 1.6rem; }
-      .card { aspect-ratio: 16/6; }
+      .container { grid-template-rows: repeat(4, calc((100vh - 22vh) / 4)); }
     }
 
     @media (max-width: 768px) {
-      .header img { width: 50px; }
+      .header img { width: 45px; }
       .header h1 { font-size: 1.4rem; }
-      .container { width: 95vw; }
-      .card { aspect-ratio: 16/7; }
+      .container { grid-template-rows: repeat(4, calc((100vh - 20vh) / 4)); width: 95vw; }
     }
 
     @media (max-width: 480px) {
-      .header img { width: 45px; }
+      .header img { width: 40px; }
       .header h1 { font-size: 1.2rem; }
-      .card { aspect-ratio: 16/8; }
     }
   </style>
 </head>
