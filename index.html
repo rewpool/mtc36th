@@ -45,7 +45,7 @@
       font-size: 2.3rem;
       font-weight: 900;
       margin: 0;
-      color: #5a2ebd; /* สีม่วงเข้ม */
+      color: #5a2ebd;
       letter-spacing: 1px;
       text-shadow:
         1px 1px 3px rgba(255, 215, 0, 0.3),
@@ -65,7 +65,7 @@
       display: grid;
       grid-template-rows: repeat(4, auto);
       width: 90vw;
-      gap: 0.8rem; /* ลดระยะห่างลง */
+      gap: 0.8rem;
       margin-top: 15px;
       margin-bottom: 30px;
       animation: fadeInUp 1.2s ease;
@@ -80,6 +80,7 @@
     .card {
       position: relative;
       width: 100%;
+      aspect-ratio: 16 / 6; /* ✅ ขนาดเท่ากันทุก Banner */
       border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
@@ -110,27 +111,24 @@
       filter: brightness(1.15) saturate(1.1);
     }
 
-    /* ===== Animation Fade ===== */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     /* ===== Responsive ===== */
     @media (max-width: 1024px) {
       .header img { width: 60px; }
       .header h1 { font-size: 1.9rem; }
+      .card { aspect-ratio: 16 / 7; } /* เพิ่มความสูงเล็กน้อยสำหรับจอเล็ก */
     }
 
     @media (max-width: 768px) {
       .header img { width: 50px; }
       .header h1 { font-size: 1.6rem; }
       .container { width: 95vw; gap: 0.6rem; }
+      .card { aspect-ratio: 16 / 8; }
     }
 
     @media (max-width: 480px) {
       .header img { width: 40px; }
       .header h1 { font-size: 1.3rem; }
+      .card { aspect-ratio: 16 / 9; } /* มือถือ — สูงขึ้นอีกเล็กน้อย */
     }
   </style>
 </head>
