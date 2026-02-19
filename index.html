@@ -30,37 +30,33 @@
       margin-top: 25px;
       text-align: center;
       flex-wrap: wrap;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(240,230,255,0.6));
-      border-radius: 18px;
-      box-shadow: 0 4px 25px rgba(160, 120, 255, 0.25);
     }
 
     .header img {
       width: 70px;
       height: auto;
-      filter: drop-shadow(0 0 8px rgba(180, 120, 255, 0.6));
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
     }
 
     .header h1 {
-      font-size: 2.1rem;
+      font-size: 2.3rem;
       font-weight: 900;
       margin: 0;
-      color: #5b2ebd;
+      color: #5b2ebd; /* สีม่วงเข้ม */
       letter-spacing: 1px;
       text-shadow:
-        0 0 12px rgba(255, 255, 255, 0.8),
-        0 0 20px rgba(180, 130, 255, 0.6),
-        2px 2px 10px rgba(100, 50, 200, 0.6);
-      transition: all 0.4s ease;
+        2px 2px 0 #ffd966,   /* เงาทองอ่อน */
+        4px 4px 0 #c6a300,   /* เงาทองเข้ม */
+        6px 6px 12px rgba(255, 200, 0, 0.3); /* แสงกระจายสีทอง */
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
     }
 
-    .header:hover h1 {
-      transform: scale(1.03);
+    .header h1:hover {
+      transform: scale(1.05);
       text-shadow:
-        0 0 18px rgba(255, 255, 255, 0.9),
-        0 0 25px rgba(180, 130, 255, 0.8),
-        2px 3px 12px rgba(120, 60, 240, 0.8);
+        2px 2px 0 #ffe680,
+        4px 4px 0 #ffcc00,
+        6px 6px 14px rgba(255, 220, 100, 0.7);
     }
 
     /* Container */
@@ -69,7 +65,7 @@
       grid-template-rows: repeat(4, calc((100vh - 25vh) / 4));
       width: 88vw;
       gap: 1.5vh;
-      margin-top: 25px;
+      margin-top: 18px;
       margin-bottom: 40px;
     }
 
@@ -109,14 +105,12 @@
     /* Responsive */
     @media (max-width: 1024px) {
       .header img { width: 60px; }
-      .header h1 { font-size: 1.8rem; }
-      .container { grid-template-rows: repeat(4, calc((100vh - 22vh) / 4)); }
+      .header h1 { font-size: 1.9rem; }
     }
 
     @media (max-width: 768px) {
       .header img { width: 50px; }
-      .header h1 { font-size: 1.5rem; }
-      .container { grid-template-rows: repeat(4, calc((100vh - 20vh) / 4)); width: 95vw; }
+      .header h1 { font-size: 1.6rem; }
     }
 
     @media (max-width: 480px) {
