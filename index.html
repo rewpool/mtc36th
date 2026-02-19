@@ -7,102 +7,111 @@
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@700;900&display=swap" rel="stylesheet" />
 
   <style>
+    /* ===== พื้นหลังหลัก ===== */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: "Sarabun", "TH SarabunPSK", sans-serif;
-      background: linear-gradient(to bottom right, #f7f3ff, #ede6ff, #fff9ef);
-      overflow-y: auto;
+      background: linear-gradient(135deg, #f8f5ff, #fdfcff, #fffaf2);
       overflow-x: hidden;
-      color: #3d2c54;
+      color: #3b2565;
       display: flex;
       flex-direction: column;
       align-items: center;
+      scroll-behavior: smooth;
     }
 
-    /* ส่วนหัว */
+    /* ===== ส่วนหัว (Header) ===== */
     .header {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
+      gap: 14px;
       margin-top: 25px;
       text-align: center;
       flex-wrap: wrap;
+      position: relative;
+      animation: fadeIn 1s ease;
     }
 
     .header img {
       width: 70px;
       height: auto;
-      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+      filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
     }
 
     .header h1 {
       font-size: 2.3rem;
       font-weight: 900;
       margin: 0;
-      color: #5b2ebd; /* สีม่วงเข้ม */
+      color: #5b2ebd;
       letter-spacing: 1px;
+      background: linear-gradient(90deg, #5a2ecc, #c69300);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       text-shadow:
-        2px 2px 0 #ffd966,   /* เงาทองอ่อน */
-        4px 4px 0 #c6a300,   /* เงาทองเข้ม */
-        6px 6px 12px rgba(255, 200, 0, 0.3); /* แสงกระจายสีทอง */
-      transition: transform 0.3s ease, text-shadow 0.3s ease;
+        2px 2px 0 #ffd966,
+        4px 4px 8px rgba(255, 215, 100, 0.5);
+      animation: glowText 3s ease-in-out infinite alternate;
     }
 
-    .header h1:hover {
-      transform: scale(1.05);
-      text-shadow:
-        2px 2px 0 #ffe680,
-        4px 4px 0 #ffcc00,
-        6px 6px 14px rgba(255, 220, 100, 0.7);
+    @keyframes glowText {
+      0% { text-shadow: 2px 2px 5px #ffd966, 0 0 10px rgba(255, 215, 0, 0.4); }
+      100% { text-shadow: 2px 2px 8px #ffe58a, 0 0 18px rgba(255, 215, 0, 0.7); }
     }
 
-    /* Container */
+    /* ===== Container ===== */
     .container {
       display: grid;
-      grid-template-rows: repeat(4, calc((100vh - 25vh) / 4));
-      width: 88vw;
-      gap: 1.5vh;
-      margin-top: 18px;
+      grid-template-rows: repeat(4, auto);
+      width: 90vw;
+      gap: 1.5rem;
+      margin-top: 20px;
       margin-bottom: 40px;
+      animation: fadeInUp 1.2s ease;
     }
 
-    /* Card */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Card ===== */
     .card {
       position: relative;
       width: 100%;
-      border-radius: 18px;
+      border-radius: 22px;
       overflow: hidden;
       cursor: pointer;
-      background: #ffffff;
-      border: 1.5px solid rgba(180, 150, 255, 0.3);
-      box-shadow: 0 8px 18px rgba(100, 70, 180, 0.2);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(6px);
+      border: 1.5px solid rgba(170, 130, 255, 0.25);
+      box-shadow: 0 8px 20px rgba(110, 80, 180, 0.2);
+      transition: all 0.4s ease;
     }
 
     .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 30px rgba(90, 50, 180, 0.35);
-      border-color: rgba(150, 120, 255, 0.5);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(120, 90, 200, 0.35);
+      border-color: rgba(180, 140, 255, 0.45);
     }
 
     .card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 18px;
-      transition: filter 0.3s ease, transform 0.3s ease;
+      border-radius: 22px;
+      transition: transform 0.4s ease, filter 0.4s ease;
       filter: brightness(1.05) contrast(1.05);
     }
 
     .card:hover img {
-      filter: brightness(1.15) saturate(1.2);
-      transform: scale(1.01);
+      transform: scale(1.03);
+      filter: brightness(1.2) saturate(1.1);
     }
 
-    /* Responsive */
+    /* ===== Responsive ===== */
     @media (max-width: 1024px) {
       .header img { width: 60px; }
       .header h1 { font-size: 1.9rem; }
@@ -111,6 +120,7 @@
     @media (max-width: 768px) {
       .header img { width: 50px; }
       .header h1 { font-size: 1.6rem; }
+      .container { width: 95vw; }
     }
 
     @media (max-width: 480px) {
